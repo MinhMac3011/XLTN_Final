@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recorder</title>
+    <link rel="stylesheet" href="../static/styles/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Reggae+One&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://stephino.github.io/dist/favicon.png" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://stephino.github.io/dist/recorder.js"></script>
+    <script>
+        jQuery(document).ready(function() {
+            var $ = jQuery;
+            var myRecorder = {
+                objects: {
+                    context: null,
+                    stream: null,
+                    recorder: null
+                },
+                init: function() {
+                    if (null === myRecorder.objects.context) {
+                        myRecorder.objects.context = new(
+                            window.AudioContext || window.webkitAudioContext
+                        );
+                    }
+                },
+                start: function() {
+                    var options = {
+                        audio: true,
+                        video: false
+                    };
+                    navigator.mediaDevices.getUserMedia(options).then(function(stream) {
+                        myRecorder.objects.stream = stream;
+                        myRecorder.objects.recorder = new Recorder(
+                            myRecorder.objects.context.createMediaStreamSource(stream), {
+                                numChannels: 1
+                            }
+                        );
+                        myRecorder.objects.recorder.record();
+                    }).catch(function(err) {});
+                },
+                stop: function(listObject) {
+                    if (null !== myRecorder.objects.stream) {
+                        myRecorder.objects.stream.getAudioTracks()[0].stop();
+                    }
+                    if (null !== myRecorder.objects.recorder) {
+                        myRecorder.objects.recorder.stop();
+
+                        // Validate object
+                        if (null !== listObject &&
+                            'object' === typeof listObject &&
+                            listObject.length > 0) {
+                            // Export the WAV file
+                            myRecorder.objects.recorder.exportWAV(function(blob) {
+                                var url = (window.URL || window.webkitURL)
+                                    .createObjectURL(blob);
+
+                                // Prepare the playback
+                                var audioObject = $('<audio controls></audio>')
+                                    .attr('src', url);
+
+                                // Prepare the download link
+                                var downloadObject = $('<a>&#9660;</a>')
+                                    .attr('href', url)
+                                    .attr('download', new Date().toUTCString() + '.wav');
+
+                                // Wrap everything in a row
+                                var holderObject = $('<div class="row"></div>')
+                                    .append(audioObject)
+                                    .append(downloadObject);
+
+                                // Append to the list
+                                listObject.append(holderObject);
+                            });
+                        }
+                    }
+                }
+            };
+
+            // Prepare the recordings list
+            var listObject = $('[data-role="recordings"]');
+
+            // Prepare the record button
+            $('[data-role="controls"] > button').click(function() {
+                // Initialize the recorder
+                myRecorder.init();
+
+                // Get the button state 
+                var buttonState = !!$(this).attr('data-recording');
+
+                // Toggle
+                if (!buttonState) {
+                    $(this).attr('data-recording', 'true');
+                    myRecorder.start();
+                } else {
+                    $(this).attr('data-recording', '');
+                    myRecorder.stop(listObject);
+                }
+            });
+        });
+    </script>
+</head>
+
+<body id="body">
+    <header>
+        <div class="logo-container">
+            <h4 class="logo">Recorder</h4>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a class="nav-link" href="../templates/Record.html">Record</a></li>
+                <li><a class="nav-link" href="../templates/index.html">Audio To Text</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1 class="course-title">Online Voice Recorder</h1>
+        <p class="p">Click button to record your voice and listen back to it or download</p>
+    </div>
+    <div class="edit">
+        <div class="holder">
+            <div data-role="controls">
+                <button>Record</button>
+            </div>
+            <div data-role="recordings"></div>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+
+</html>

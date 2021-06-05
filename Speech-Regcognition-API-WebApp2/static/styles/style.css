@@ -1,0 +1,321 @@
+body {
+    margin: 0%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: 'Sarabun', sans-serif, cursive;
+    background: url(2.jpg);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-attachment: fixed;
+}
+
+header {
+    display: flex;
+    width: 95%;
+    position: relative;
+    margin: 10px auto;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    align-items: center;
+}
+
+.logo-container,
+.nav-links {
+    display: flex;
+}
+
+.logo-container {
+    flex: 1;
+}
+
+nav {
+    flex: 1;
+}
+
+.logo {
+    margin: 6.5px;
+    height: 60px;
+    font-size: 38px;
+    line-height: 60px;
+    padding: 0 20px;
+    text-align: center;
+    float: left;
+    font-weight: 700;
+    color: #5B2C6F;
+}
+.jkl{
+    margin-left: 100px;
+}
+.nav-links {
+    justify-content: space-around;
+    list-style: none;
+}
+
+.nav-link {
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    justify-content: flex-end;
+}
+
+.edit {
+    position: absolute;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 60%;
+    width: 100%;
+    margin: 0;
+}
+
+.holder {
+    background-color: #4c474c;
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#4c474c), to(#141414));
+    background-image: -o-linear-gradient(bottom, #4c474c 0%, #141414 100%);
+    background-image: linear-gradient(0deg, #4c474c 0%, #141414 100%);
+    border-radius: 50px;
+}
+
+[data-role="controls"]>button {
+    margin: 50px auto;
+    outline: none;
+    display: block;
+    border: none;
+    background-color: #D9AFD9;
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#D9AFD9), to(#97D9E1));
+    background-image: -o-linear-gradient(bottom, #D9AFD9 0%, #97D9E1 100%);
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    text-indent: -1000em;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3) inset, 0px 0px 0px 30px #fff, 0px 0px 0px 35px #333;
+    box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3) inset, 0px 0px 0px 30px #fff, 0px 0px 0px 35px #333;
+}
+
+[data-role="controls"]>button:hover {
+    background-color: #ee7bee;
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#ee7bee), to(#6fe1f5));
+    background-image: -o-linear-gradient(bottom, #ee7bee 0%, #6fe1f5 100%);
+    background-image: linear-gradient(0deg, #ee7bee 0%, #6fe1f5 100%);
+}
+
+[data-role="controls"]>button[data-recording="true"] {
+    background-color: #ff2038;
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#ff2038), to(#b30003));
+    background-image: -o-linear-gradient(bottom, #ff2038 0%, #b30003 100%);
+    background-image: linear-gradient(0deg, #ff2038 0%, #b30003 100%);
+}
+
+[data-role="recordings"]>.row {
+    width: auto;
+    height: auto;
+    padding: 20px;
+}
+
+[data-role="recordings"]>.row>audio {
+    outline: none;
+}
+
+[data-role="recordings"]>.row>a {
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+    line-height: 50px;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline;
+    background-color: #0093E9;
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#0093E9), to(#80D0C7));
+    background-image: -o-linear-gradient(bottom, #0093E9 0%, #80D0C7 100%);
+    background-image: linear-gradient(0deg, #0093E9 0%, #80D0C7 100%);
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+[data-role="recordings"]>.row>a:hover {
+    text-decoration: none;
+}
+
+[data-role="recordings"]>.row>a:active {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#0093E9), to(#80D0C7));
+    background-image: -o-linear-gradient(top, #0093E9 0%, #80D0C7 100%);
+    background-image: linear-gradient(180deg, #0093E9 0%, #80D0C7 100%);
+}
+
+div {
+    display: block;
+}
+
+.container {
+    margin-top: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    margin-bottom: 20px;
+    line-height: 1.2;
+    font-size: 40px;
+}
+
+.p {
+    font-size: 21.5px;
+}
+
+.edit {
+    margin-top: 20px;
+}
+
+.a-link {
+    display: flex;
+    width: 100%;
+    margin: 20px auto;
+    margin-top: 50px;   
+    background: #844659;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    align-items: center;
+    height: 250px;
+    text-align: center;
+}
+
+input[type="file" i] {
+    appearance: none;
+    background-color: initial;
+    cursor: default;
+    align-items: center;
+    color: inherit;
+    text-overflow: ellipsis;
+    white-space: pre;
+    text-align: start !important;
+    padding: initial;
+    border: initial;
+    overflow: hidden !important;
+    size: 25px;
+}
+
+input[type="file"] {
+    display: block;
+}
+
+
+.b-link{
+    margin-left: 125px;
+}
+.i{
+    font-size: medium;
+    text-align: center;
+    margin-top: 20px;
+}
+h5 {
+    display: block;
+    font-size: 20px;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.ip {
+    font-size: 17.5px;
+    margin-left: 55px;
+}
+
+a.btn.disabled,
+fieldset[disabled] a.btn {
+    pointer-events: none;
+}
+
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+    cursor:not-allowed;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    box-shadow: none;
+}
+
+.btn {
+    font-size: 16px;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #ba51cf;
+    border-color: #0b89ff;
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 15px;
+    line-height: 1.4;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .text{
+      font-size: 25px;
+      margin-left: 0px;
+  }
+  .text_area{
+      margin-top: 10px;
+      font-size: xx-large;
+      margin-right: 35px;
+  }

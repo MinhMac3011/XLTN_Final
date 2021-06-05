@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/style.css">
+    <link rel="stylesheet" href="../static/styles/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://stephino.github.io/dist/favicon.png" />
+    <title>Audio To Text</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <h4 class="logo">Recorder</h4>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a class="nav-link" href="../templates/Record.html">Record</a></li>
+                <li><a class="nav-link" href="../templates/index.html">Audio To Text</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1 class="course-title">Audio to Text Converter</h1>
+        <p class="p">Convert audio files to text and download them</p>
+    </div>
+    <div class="row">
+        <div class="column">
+            <div class="a-link" style="background-color: #f7f7f7;">
+                <form method="post" enctype="multipart/form-data" class="jkl">
+                    <input class="ip" id="fileInput" accept="audio/*" type="file" name="file"/>
+                    <h5>Audio should be .mp3, .wav or .ogg format</h5>
+                    <input class="i"  type="submit" id="submitButton" value="AudioToText"/>
+                </form>
+            </div>
+        </div>
+        <div class="column">
+            <div class="a-link" style="background-color: #f7f7f7;">
+                <div class="link">
+                    {% if transcript != "" %}
+                    <div id="speechTranscriptContainer">
+                        <h5>Transcript</h5>
+                        <p id="speechText">{{ transcript }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    </div>
+</body>
+
+</html>
